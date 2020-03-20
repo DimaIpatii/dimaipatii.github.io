@@ -1,0 +1,412 @@
+ /* DEFAUL STYLE FOR ICON */
+.svg-item{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* DEFAULT BUTTONS */
+.button{   
+    cursor:pointer; 
+
+    &_add-to{
+        width: 3rem;
+        height: 3rem;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+    }
+    &_plus-icon{margin-right: .5rem;}
+    &_buy{
+        background-color:$background-color-primary-dark;
+        padding: 1rem;
+    }   
+} 
+
+
+/************************************* NAVIGATION BUTTON (HAMBURGER)**************************************/
+/***** BUTTON LABEL *****/
+.button-navigation{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width:2.5rem;
+    height:2.5rem;
+
+    cursor: pointer;
+    position: absolute;
+    left: 5rem;
+    z-index: 100000;
+
+    &__icon{
+        display:block;
+        width:100%;
+        height:.5rem;
+        
+        background-color:$background-color-primary-dark;
+        border-radius:5rem;
+        
+        transition: all .5s;
+    }
+}
+/***** END OF BUTTON LABEL *****/
+
+/***** BUTTON INPUT *****/
+.button-navigation-input{ 
+    display: none;
+
+    /* Transform navigation icon from "hamburger" to "house" */
+    &:checked ~ .button-navigation .button-navigation__icon_bottom{
+        border-radius:0rem;
+        height:60%;
+        width:70%;
+        margin:0 auto;
+        clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+    }
+    &:checked ~ .button-navigation .button-navigation__icon_top{
+        transform: rotate(32deg);
+        transform-origin: -1px 2.3rem;
+        border-radius: 5rem;
+        width: 64%;
+
+        @include respond ($laptop){
+            transform-origin: 0px 2.5rem;
+        }
+        @include respond ($mob){
+            transform-origin: -1px 2.5rem;
+        }
+    }
+    &:checked ~ .button-navigation .button-navigation__icon_middle{
+        width: 65%;
+        transform: rotate(-32deg);
+        transform-origin: 1.3rem .4rem;
+        border-radius: 5rem;
+    }
+    &:checked ~ .button-navigation .button-navigation__icon_bottom.icon_bottom::after{
+        position: relative;
+        display: block;
+        bottom: -.9rem;
+        left: -6rem;
+        content: "";
+        width: .5rem;
+        height: .6rem;
+        background-color: $background-color-primary-light;
+    }
+    /* enf Transform navigation icon from "hamburger" to "house" */
+
+    /* HIDE SMALL LOGO WHEN NAVIGATION IS OPPEDNED */
+    &:checked ~ .logo_small-size{
+        transition:opacity .2s;
+        opacity: 0;
+    }
+
+    /***** Navigation menu-list  LEFT SIDE *****/
+    &:checked ~ .navigation__list_left{
+        margin-left:5rem;
+        transition: all .1s;
+
+        @include respond ($tab){
+            margin-left:0rem;
+            position: absolute;
+            top: 0;
+            left: 0%;
+            width: 100%;
+            height: 100vh;
+            background-color: $background-color-primary-light;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem;
+        }
+    }
+    /***** End of Navigation menu-list  LEFT SIDE *****/
+
+    /***** Menu list items *****/
+    &:checked ~ .navigation__list_left .navigation__list-item_one{
+        transition: all .1s .6s;
+        transform: translateX(4%);
+        opacity: 1;
+
+        @include respond ($tab){
+            /*vertical allignment for primary list items*/    
+            transition: all .1s .2s;
+            transform: translateX(0%);
+        }
+    }
+    &:checked ~ .navigation__list_left .navigation__list-item_two{
+        transition: all .1s .4s;
+        transform: translateX(14%);
+        opacity: 1;
+
+        @include respond ($tab){
+            /*vertical allignment for primary list items*/    
+            transition: all .1s .3s;
+            transform: translateX(0%);
+        }
+    }
+    &:checked ~ .navigation__list_left .navigation__list-item_three{
+        transition: all .1s .2s;
+        transform: translateX(24%);
+        opacity: 1;
+
+        @include respond ($tab){
+            /*vertical allignment for primary list items*/
+            transition: all .1s .4s;
+            transform: translateX(0%);
+        }
+            
+    }
+    &:checked ~ .navigation__list_left .navigation__list-item_four{
+        transition: all .1s .2s;
+        transform: translateX(15%);
+        opacity: 1;
+        
+        @include respond ($tab){
+            /*vertical allignment for primary list items*/
+            transition: all .1s .5s;
+            transform: translateX(0%);
+            animation-name: none;
+            animation-delay: 0s;
+            animation-duration: .0s;
+        }
+    }
+    /***** end of Menu list items *****/
+    /***** end of Navigation menu-list  LEFT SIDE*****/
+
+    /***** Navigation menu-list RIGHT SIDE *****/
+    &:checked ~ .navigation__list_right{
+        margin-right:0%;
+        transition: all .1s;
+
+        @include respond ($tab){
+            margin-right: 0%;
+            transition: all .1s;
+            position: absolute;
+            top: 30%;
+            right: 0;
+            z-index: 1000;
+        }
+    }
+
+    /*toggle list items one after another*/
+    &:checked ~ .navigation__list_right .navigation__list-item_one{
+        transition: all .1s .2s;
+        transform: translateX(-15%);
+        opacity: 1;
+
+        @include respond ($tab){
+            transition: all .1s .2s;
+            transform: translateX(0%);
+        }
+    }
+    &:checked ~ .navigation__list_right .navigation__list-item_two{
+        transition: all .1s .4s;
+        transform: translateX(-24%);
+        opacity: 1;
+
+        @include respond ($tab){
+            transition: all .1s .3s;
+            transform: translateX(0%);
+        }
+    }
+    &:checked ~ .navigation__list_right .navigation__list-item_three{
+        transition: all .1s .6s;
+        transform: translateX(-14%);
+        opacity: 1;
+
+        @include respond ($tab){
+            transition: all .1s .4s;
+            transform: translateX(0%);
+        }
+    }
+    /***** End of Navigation menu-list RIGHT SIDE *****/
+}
+/***** END OF BUTTON INPUT *****/
+/************************************** END OF NAVIGATION BUTTON**************************************/  
+
+/************************************** OPEN PRODUCT CATEGORY BUTTON**************************************/  
+ /*****Underline Discover product button*****/
+ .discover-button{
+    position: relative;
+    transition:border-bottom .5s;
+
+    /*--Underline background*/
+    &::before {
+        background-color: $background-color-primary-dark;
+        position: absolute;
+        content:"";
+        transition:width .5s;
+        width: 0%;
+        height: 100%;
+        left: -2rem;
+        z-index: -1;
+        -webkit-clip-path: polygon(0% 0%, 91% 0, 100% 48%, 91% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 91% 0, 100% 48%, 91% 100%, 0% 100%);
+    }
+    &:hover::before { width: 100%;}
+ }
+/************************************** END OF OPEN PRODUCT CATEGORY BUTTON**************************************/  
+
+/**************************************CLOSE BUTTON**************************************/  
+.close-buton{
+    position: absolute;
+    top:40%;
+    left:2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor:pointer;
+
+    @include respond (59.37em){
+        top: 2rem;
+    }
+}
+
+.svg-item_close-button:hover{
+    transition: color .2s;
+    fill: red;
+}
+/************************************** END OF CLOSE BUTTON**************************************/  
+
+/************************************** SEARCH BUTTON**************************************/  
+.search-form__button{
+    width: 2.5rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -1px;
+    cursor:pointer;
+    border: none;
+    background: transparent;
+}
+
+.svg-item_search-button{
+    width:50%;
+}
+/************************************** END OF SEARCH BUTTON**************************************/ 
+
+
+/*******************************************************************************************************************************************************************
+  Button for open close tags !!!TEMPORARY!!!!
+  ********************************************************************************************************************************************************************/
+  
+/*Default state*/
+#open-tags-button_kitchen,
+#open-tags-button_livingroom,
+#open-tags-button_bedroom,
+#open-tags-button_bathroom,
+#open-tags-button_decoration{
+    display: none;
+    overflow: hidden;
+}
+/*End of Default state*/
+
+@include respond (59.37em){ 
+    /* BUTTON LABEL */
+    .button__switch-tags{
+        position: relative;
+        background-color: $background-color-secondary-dark;
+        color: $text-color-primary-light;
+        padding:1rem;
+        line-height: 1;
+        z-index: 101;
+    }
+    /* BUTTON LABEL */
+
+    /* BUTTON INPUT */
+    /* Drop-down Container */
+      #open-tags-button_kitchen:checked ~ .navigation__list_popup-tags,
+      #open-tags-button_livingroom:checked ~ .navigation__list_popup-tags,
+      #open-tags-button_bedroom:checked ~ .navigation__list_popup-tags,
+      #open-tags-button_bathroom:checked ~ .navigation__list_popup-tags,
+      #open-tags-button_decoration:checked ~ .navigation__list_popup-tags{
+        width: 100%;
+        height: max-content;
+        position: fixed;
+        opacity: 1;
+        transition: width .5s;
+      }
+    /* Drop-down Container */
+    /* style for tag item */
+     
+
+      /* TRANSLATE DOWNLIST OF TAGS FOR EACH CATEGORY */
+      /* Drop-down items */
+      #open-tags-button_kitchen:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_one,
+      #open-tags-button_livingroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_one,
+      #open-tags-button_bedroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_one,
+      #open-tags-button_bathroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_one,
+      #open-tags-button_decoration:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_one{
+          transition: all .2s .5s;
+          transform: translateY(0%);
+      }
+      #open-tags-button_kitchen:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_two,
+      #open-tags-button_livingroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_two,
+      #open-tags-button_bedroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_two,
+      #open-tags-button_bathroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_two,
+      #open-tags-button_decoration:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_two{
+          transition: all .2s .4s;
+          transform: translateY(0%);
+      }
+      #open-tags-button_kitchen:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_three,
+      #open-tags-button_livingroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_three,
+      #open-tags-button_bedroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_three,
+      #open-tags-button_bathroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_three,
+      #open-tags-button_decoration:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_three{
+          transition: all .2s .3s;
+          transform: translateY(0%);
+      }
+      #open-tags-button_kitchen:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_four,
+      #open-tags-button_livingroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_four,
+      #open-tags-button_bedroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_four,
+      #open-tags-button_bathroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_four,
+      #open-tags-button_decoration:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_four{
+          transition: all .2s .2s;
+          transform: translateY(0%);
+      }
+      #open-tags-button_kitchen:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_five,
+      #open-tags-button_livingroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_five,
+      #open-tags-button_bedroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_five,
+      #open-tags-button_bathroom:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_five,
+      #open-tags-button_decoration:checked ~ .navigation__list_popup-tags .navigation__list-item-tag_five{   
+          transition: all .2s .1s;
+          transform: translateY(0%);
+          animation-name: none;
+          animation-delay: 0s;
+          animation-duration: .0s;
+      }
+      /* End of Drop-down items */
+      /* End of BUTTON INPUT */
+      /* TRANSLATE LIST OF TAGS FOR EACH CATEGORY */
+  }
+  /*End of Button for open close tags*/
+  /*******************************************************************************************************************************************************************
+  Button for open close tags !!!TEMPORARY!!!!
+  ********************************************************************************************************************************************************************/
+
+/* TARGETS FOR TEAM PHOTOS */
+#one:target,
+#two:target,
+#three:target,
+#four:target,
+#five:target,
+#six:target,
+#seven:target,
+#eight:target{ 
+      transition:border .8s ;
+      border:.5rem solid white;
+
+    @include respond (56.25em){     
+        /*Underline links and picture*/
+        display: block;
+        width: 50%;
+        height: 100%;
+        opacity: 1;
+        transition: opacity 1s;
+        margin-bottom: 5rem;
+    }
+}
+/* END OF TARGETS FOR TEAM PHOTOS */
+  

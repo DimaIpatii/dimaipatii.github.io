@@ -1,0 +1,25 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "Home Project",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel watch:sass devserver",
+
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 version' -o css/style.prefix.css css/style.comp.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "package": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "author": "Dmytro Ipatii",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0"
+  },
+  "dependencies": {}
+}

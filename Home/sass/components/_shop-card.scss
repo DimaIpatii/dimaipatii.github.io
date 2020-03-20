@@ -1,0 +1,67 @@
+.shop-card{
+    position: relative;
+    flex:1 1 41%;
+    margin: 5rem ;
+    transition:width 1s;
+
+    @include respond (37.5em){
+        flex: 0 0 100%;
+        margin: 2.5rem 0rem;
+    }
+
+    &__figcaption{
+        position: absolute;
+        top:4rem;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity .2s;
+        
+        @include respond (56.25em){
+               opacity: 1;
+        }
+    }
+
+    /*Background for shop category category button*/
+    &::before{
+        position: absolute;
+        top:2rem;
+        left: 0;
+        display:block;
+        content: "";
+        background-color: $background-color-primary-light;
+        width: 0rem;
+        height: 10rem;
+        z-index:1;
+        transition:width 1s;
+
+        @include respond (56.25em){
+            width: 20rem;
+        }
+
+        /*last image height*/
+        &_full-with{ 
+            height: 80rem;
+            
+            @include respond (62.5em){ 
+                height: 100%; 
+            }
+        }
+    }
+
+    &:hover::before{
+        transition:width 1s;
+        width: 25rem;
+        
+        @include respond (56.25em){
+            width: 20rem;
+        }
+    }
+    
+    &:hover .shop-card__figcaption{
+        transition: opacity .5s .3s;
+        opacity: 1;
+    }
+}

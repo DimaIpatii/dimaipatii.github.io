@@ -1,0 +1,148 @@
+/******HIDE POPUP******/
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    z-index: -1000;
+    
+    background-color:$background-color-primary-dark-transparent;
+    
+    transition: z-index .3s .5s, opacity .1s .5s, background-color .5s;
+
+    &__items-block{
+        width: 90%;
+        height: 90%;
+    
+        display: flex;
+        flex-direction: column;
+    
+        position: relative;
+        
+        margin: 3% auto;
+        
+        background-color:$background-color-primary-light;
+        
+        transform: scale(0);
+        transition: transform .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        
+        @include respond ($desktop-large){
+            max-width:172rem;
+        }
+        @include respond (59.37em){
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $background-color-secondary;
+    }
+    /******Items******/
+    &__product-item{
+        max-width: 30rem;
+        height: 35rem;
+        background-color: $background-color-primary-light;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        margin: 5rem;
+        flex: 1 1 25rem;
+        box-sizing: border-box;
+
+         /******changes for products that are in sale******/
+        &_on-sale::before{
+            position: absolute;
+            display: flex;
+            content: "SALE";
+            width: 35%;
+            padding: 2rem;
+            background-color: #c1c145;
+            justify-content: center;
+            transform: rotate(45deg);
+            right: -15%;
+            top: -1%;
+        }
+    }
+    &__product-item-caption{
+        text-align: center;
+    }
+    /******Information block of product******/
+    &__product-item-info{
+        background-color: $background-color-secondary-light;
+        padding: 1rem 1rem;
+        width: 100%;
+        height: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: bottom 1s;
+        box-sizing: border-box;
+    }
+
+    &__image{
+        width: 100%;
+        height: 65%;
+    }
+    
+     /******Container with buttons******/
+    &__buttons-wrapper{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+/******END OF HIDE POPUP******/
+
+/******DISPLAY POPUP******/
+ #kitchen:target,
+ #livingroom:target,
+ #bedroom:target,
+ #bathroom:target,
+ #decoration:target{
+     z-index: 10000;
+     opacity: 1;
+     
+     transition: opacity .2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color .5s;
+     
+}
+
+#kitchen:target  .popup__items-block,
+#livingroom:target .popup__items-block,
+#bedroom:target .popup__items-block,
+#bathroom:target .popup__items-block,
+#decoration:target .popup__items-block{
+    transform: scale(1);
+    transition: transform .2s .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/******DISPLAY POPUP******/
+
+/******Price and more details******/
+.addintional-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.price{
+    border: 1px solid;
+    padding: 1rem;
+}
+.details{
+    padding: 1rem;
+}
+.price_sale{
+    background-color:#de3131;
+}
+/******End Price and more details******/

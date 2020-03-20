@@ -1,0 +1,15 @@
+ /*Footer*/
+ .footer{
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+    background-color: $background-color-primary-dark;
+
+    @include respond (121.87em){
+        margin: 0px -12.48%;
+    }
+}
+

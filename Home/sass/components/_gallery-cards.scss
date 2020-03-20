@@ -1,0 +1,39 @@
+.gallery-card{
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 25%;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    text-align: center;
+    height: 40rem;
+
+    @include respond ($laptop){
+        flex: 0 0 320px;
+    }
+    @include respond (26.6em){
+         flex:0 0 90%;
+    }
+    
+    @include respond (121.8em){
+        flex:1 1 45rem;
+    }
+    
+    &__image-container{ 
+        width:100%;
+        height: 80%;
+        overflow: hidden;
+    }
+    &_image{
+        width: 100%;
+        height: 100%;
+        transform: scale(1.1);
+        transition: transform .5s;
+    }
+    &:hover .gallery-card_image{ 
+        transform: scale(1);
+        transition: transform .5s;
+    }
+}

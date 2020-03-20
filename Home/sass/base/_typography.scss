@@ -1,0 +1,196 @@
+
+
+/********** GLOBAL **********/
+html{
+    font-size:62.5%;
+}
+  @include respond ($laptop){
+      html{font-size: 56.5%; }
+  }
+  @include respond ($mob){
+      html{font-size:45.5%;}
+  }
+
+body{
+    font-size:1.6rem;
+    font-family:$font-family-primary;
+    line-height:1.1;
+    color:$text-color-primary-dark;
+}
+  
+a{
+    text-decoration:none;
+    list-style:none;
+}
+/********** END OF GLOBAL **********/
+
+.header__text{
+    font-size: $font-size-l;
+    font-family: $font-family-primary;
+    color:$text-color-primary-light;
+    line-height: 1.6;
+    letter-spacing: .5px;
+
+    @include respond ($tab){
+        font-size: $font-size-m;
+    }
+}
+
+/**********LOGO**********/
+.logo{
+    color:$text-color-primary-dark;
+    font-family:$font-family-secondary;
+    font-size: $logo-deafault;
+    font-weight: 400;
+    line-height: 1;
+}
+/*styles for big-size logo*/
+.logo_big-size{
+    font-size: $logo-big;
+    font-family: $font-family-secondary;
+    font-weight: 400;
+    line-height: 90%;
+}
+
+.logo__link{color:$text-color-primary-dark;}
+/********** END OF LOGO **********/
+
+/********** SECTION-CAPTION **********/
+.section__caption{
+    color: $text-color-primary-light;
+    font-weight: 200;
+
+    &_popup{
+        font-size:$font-size-m;
+    }
+}
+/********* TEAM GALLERY *********/
+.section__name-link{
+    color: $text-color-primary-light;
+}
+
+.section__name-link:hover{
+    color: $text-color-secondary;
+}
+/********* TEAM GALLERY *********/
+/********** SECTION-CAPTION **********/
+
+  /*NAVIGATION*/
+
+/********* NAVIGATION *********/
+.navigation__list-item_link{
+    color:$text-color-primary-dark;
+    line-height:130%;
+}
+/********* NAVIGATION *********/
+
+
+
+/********* POPUP *********/
+
+/*Close button*/
+.popup__close-buton{
+    color:$text-color-primary-dark;
+}
+
+/*changes for products that are in sale*/
+.popup__product-item_on-sale::before{
+    font-size: $font-size-l;
+    font-weight: bold;
+}
+
+.popup__product-item-caption{font-size: $font-size-m;}
+
+.navigation__list-item-tag{
+    text-decoration: none;
+    font-size: $font-size-s;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    color: $text-color-secondary;
+}
+
+.navigation__list-item-tag:hover{
+    color: $text-color-secondary;
+}
+
+/********* POPUP *********/
+
+/********* PRODUCT CARDS *********/
+/*Price and more details*/
+.addintional-info{
+    font-size: $font-size-s;
+}
+
+.details{
+    color: $text-color-primary-dark;
+    text-decoration: underline;
+}
+
+.price_sale{
+    color:$text-color-primary-light;
+}
+
+.price_deleted{
+    text-decoration: line-through;
+    color: $background-color-primary-dark;
+}
+/********* PRODUCT CARDS *********/
+
+
+/********* SECTIONS*********/
+.section__welcome-text{ text-transform:uppercase;}
+
+.footer__label{
+    color:$text-color-primary-light;
+    font-size: $font-size-xl; 
+}
+
+.footer__input_email-field{
+    font-family: $font-family-primary;
+    color:$text-color-primary-light
+}
+
+.footer__input_submit{
+    color:$text-color-secondary;
+}
+/********* SECTIONS*********/
+
+/********* COMPONENTS*********/
+.gallery-card__info{
+    font-family:$font-family-tertiary;
+    line-height: 160%;
+}
+
+.shop-card__figcaption{
+    line-height: 150%;
+    color: $text-color-secondary;
+    font-size:$font-size-xl;
+}
+
+
+/*Underline Discover product button*/
+.discover-button{
+    color: $text-color-secondary;
+
+    &:hover{ color:$text-color-primary-light; }
+    /*--Underline background*/
+    &::before{ color: $text-color-primary-light; }
+}
+
+
+.button{   
+    font-size: $font-size-m;
+    cursor:pointer; 
+    
+    &_add-to{
+        color: $text-color-primary-dark;
+        text-decoration: underline;
+        text-decoration: none;
+    }
+    
+    &_buy{
+        color:$text-color-primary-light;
+        text-decoration: none;
+    }
+} 
+/********* COMPONENTS*********/

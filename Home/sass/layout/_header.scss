@@ -1,0 +1,36 @@
+.header{
+    width: 95%;
+    height: 97vh;
+    display: flex;
+    justify-content: center;
+    background-image: url(/img/header-image-large-1280px.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+
+    &__text{
+        padding: 5%;
+        align-self: flex-end;
+        margin-bottom: 10%;
+    
+        text-align: center;
+        background-color:$background-color-secondary-dark;
+        
+        &_author{ 
+            display: block;
+        }
+    }
+    /* RESPONSIVE BACKGROUND-IMAGE */
+    @media only screen and (min-resolution:192dpi) and (min-width:37.5em), /* , - means "or" */
+        (min-width:93.75em){
+            background-image: url(../img/header-image-extra-large-2000px.jpg);
+    }
+    
+    @include respond ($tab){
+        height: 70vh;
+    }
+    @include respond ($mob){
+        height: 50vh;
+    }
+}
+

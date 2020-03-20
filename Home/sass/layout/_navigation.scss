@@ -1,0 +1,277 @@
+/********************************************** MAIN NAVIGATION **********************************************/
+.navigation{
+    width: 100%;
+    height: 8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position:fixed;
+    top: 0;
+    left:0%;
+    right: 0%;
+    z-index: 100;
+
+    background-color: $background-color-primary-light;
+    padding: 1.5rem 2rem 2rem 2rem; 
+    
+    /******** POPUP NAVIGATION ********/
+    &_popup{
+        position: relative;
+        padding:0 2rem;
+
+        @include respond (59.37em){
+            height: 25rem;
+            flex-direction: column;
+            padding:2rem;
+        }
+    }
+    /******** END OF POPUP NAVIGATION ********/
+
+    /********* NAVIGATION LIST CONTAINER*********/
+    &__list{
+        display: flex;
+        justify-content: space-evenly;
+        transition: all .2s;
+    
+        &_left{
+            width: 40rem;
+            margin-left: -100%;
+        }
+
+        &_right{
+            width: 20rem;
+            margin-right: -23%;
+
+            /*Changes menu on mobile devices*/
+            @include respond ($tab){
+                margin-right: 0%;
+                transition: all .1s;
+                position: absolute;
+                top: 30%;
+                right: 0;
+                z-index: 1000;
+            }
+        }
+
+        &_hide{
+            width: 50rem;
+            position: absolute;
+            left: -20rem;
+            top: 80%;
+            z-index: -1;
+            padding: .5rem;
+        
+            display: flex;
+            justify-content: space-between;
+        
+            opacity: 0;
+            visibility: hidden;
+            background-color: $background-color-tertiary-dark;
+
+            @include respond ($tab){
+                width: 15%;
+                padding: .2rem;
+                left: 84%;
+                top: -8rem;
+                flex-direction: column;
+        
+                background-color: transparent;
+            }
+        }
+
+        &_popup-tags{
+            width: 20%; 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            @include respond (100em){
+                width:30%;
+            } 
+            @include respond (65.62em){
+                width:34%;
+            } 
+            @include respond (59.37em){
+                width: 100%;
+                height: 0%;
+                position: fixed;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                /* top: 20rem; */
+
+                transform: translate(0, 15rem);
+                padding: 5rem;
+                
+                background-color: $background-color-primary-light;
+                opacity: 0;
+                overflow: hidden;
+                
+                transition: all .5s; 
+
+
+
+              /*   .navigation__list_popup-tags{
+                    width: 100%;
+                    height: max-content;
+                
+                    @include respond(59.37em){ 
+                        opacity: 0;
+                        transition: all .1s ;
+                        height: max-content;
+                        
+                        top: 16rem;
+                        opacity: 1;
+                        z-index: 10;
+                        padding: 5rem;
+                        overflow: hidden;
+                        background-color: $background-color-primary-light;
+                    }
+                } */
+
+            }
+        }
+    }
+    /********* END OF NAVIGATION LIST CONTAINER*********/
+
+    /********* NAVIGATION LIST ITEMS*********/
+    /******* FOR MAIN NAVIGATION *******/
+    &__list-item{
+        display: inline-block;
+        padding:.5rem;
+        /*Hide Primary li items*/
+        opacity: 0;
+
+        /*Changes menu on mobile devices*/
+        @include respond ($tab){
+            width: max-content;
+            height: 4rem;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        &_hide{
+            transform: translateY(-20px);
+            z-index: -2;
+            display: block;
+            opacity: 0;
+            transition: transform .1s .5s;
+
+            @include respond ($tab){
+                width: max-content;
+                height: 4rem;
+                padding: 0;
+                display: flex;
+                align-items: center;
+
+                transform: translateX(300%);
+                z-index: 1;
+
+                
+            }
+        }
+        &_open-additional-menu{
+            @include respond ($tab){
+                width: 100%;
+            }
+        }
+        &_three{
+            @include respond ($tab){
+                &:hover .navigation__list_hide{
+                    opacity: 1;
+                    visibility: visible;
+
+                    transform:translateX(0%);
+                }
+            }
+        }
+        /*Additional container with list items*/
+        &_three:hover .navigation__list_hide{
+            transition: opacity 2s;
+            opacity: 1;
+            visibility: visible;
+        } 
+        /*End of Additional container with list items*/
+
+        /*List items "second level"*/
+        &_three:hover  .navigation__list-item_hide_one{
+            transform:translateY(0%);
+            opacity: 1;
+            transition: transform .3s .2s,opacity 1s;
+        }
+        &_three:hover  .navigation__list-item_hide_two{
+            transform:translateY(0%);
+            opacity: 1;
+            transition:transform .3s .4s, opacity 1s;
+        }
+        &_three:hover  .navigation__list-item_hide_three{
+            transform:translateY(0px);
+            opacity: 1;
+            transition:transform .3s .6s, opacity 1s;
+        }
+        &_three:hover  .navigation__list-item_hide_four{
+            transform:translateY(0px);
+            opacity: 1;
+            transition:transform .3s .8s, opacity 1s;
+        }
+        &_three:hover  .navigation__list-item_hide_five{
+            transform:translateY(0px);
+            opacity: 1;
+            transition:transform .3s 1s, opacity 1s;
+        }
+        /*End of List items "second level"*/
+
+        &_link{
+            cursor: pointer;
+        }
+    }
+    /******* FOR MAIN NAVIGATION *******/
+
+    /******* FOR POPUP TAG LISTS *******/
+    &__list-item-tag{
+        display: inline-block;
+        border: 1px solid #a0a0a03d;
+        padding: .5rem 1rem;
+        transition: all .1s;
+
+        &:hover{
+            border: 1px solid #a0a0a0;
+        }
+
+        @include respond (59.37em){
+
+            transform:translateY(-100rem);
+            width: 50%;
+            margin-top: 1.5rem;
+            padding: 1.2rem 1rem;
+        }
+
+        @include respond (25em){
+            margin:1rem 0;
+            padding: 1.2rem;
+        }
+        
+    }
+    /******* FOR POPUP TAG LISTS *******/
+    /********* END OF NAVIGATION LIST ITEMS*********/
+
+    /********* SVG ICONS FOR NAVIGATION RIGHT*********/
+    &__icon{
+        width:2rem;
+        height: 2rem;
+        fill: #504e4e;
+        transition: fill .2s ;
+
+        &_cart:hover{
+            fill:blue;
+        }
+        &_heart:hover{
+            fill:#900303;
+        }
+    }
+    /********* END OF SVG ICONS FOR NAVIGATION RIGHT*********/
+}
+/********************************************** END OF MAIN NAVIGATION **********************************************/
